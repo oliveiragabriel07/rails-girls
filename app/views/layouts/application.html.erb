@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">The Idea app</a>
+      <a class="navbar-brand" href="/">RailsIdeas</a>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -27,36 +27,25 @@
         <li class="active"><a href="/ideas">Ideas</a></li>
       </ul> 
 
-      <p class="navbar-text navbar-right">
+      <p class="navbar-text pull-right">
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <strong><%= link_to current_user.email, edit_user_registration_path %></strong> |
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
           <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
         <% end %>
       </p>
-
-      <!--
-      <% if user_signed_in? %>
-          <strong><%= current_user.email %></strong>
-          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-          <li>|</li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
-        <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
-          <li>|</li>
-          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
-        <% end %>
-
-      -->
   </div>
 </nav>
 
 <div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> 
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
   <%= yield %>
 </div>
 
