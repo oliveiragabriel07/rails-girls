@@ -43,18 +43,21 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Use sqlite3 as the database for Active Record on development
   gem 'sqlite3'
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping application running in the background. 
+  # Read more: https://github.com/rails/spring
   gem 'spring'
-
+  # Adds rspec command for spring. Includes a dependency for the spring Rails application preloader
+  gem 'spring-commands-rspec'
   # rspec-rails is a testing framework for Rails 3.x and 4.x.
   gem 'rspec-rails', '~> 3.0'
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard'
+  # Guard::RSpec automatically run specs 
+  gem 'guard-rspec'
 end
 
 group :production do
