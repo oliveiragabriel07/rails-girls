@@ -3,14 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record on development
-group :development do
-  gem 'sqlite3'
-end
-# Use pg for connecting to postgreSQL on production
-group :production do
-  gem 'pg'
-end
 # Use carrierwave to upload files
 gem 'carrierwave'
 # Use mini_magick as a wrapper for ImageMagick 
@@ -49,6 +41,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record on development
+  gem 'sqlite3'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -57,5 +52,13 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # rspec-rails is a testing framework for Rails 3.x and 4.x.
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :production do
+  # Use pg for connecting to postgreSQL on production
+  gem 'pg'
 end
 
