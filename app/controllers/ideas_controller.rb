@@ -1,4 +1,6 @@
 class IdeasController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :new_idea, only: [:create]
 
@@ -15,7 +17,6 @@ class IdeasController < ApplicationController
 
   # GET /ideas/new
   def new
-    @idea = current_user.ideas.build
   end
 
   # GET /ideas/1/edit

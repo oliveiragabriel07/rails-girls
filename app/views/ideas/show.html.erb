@@ -25,8 +25,10 @@
     <%= render 'comments/form' %>
     
     <div class="actions">
-      <%= link_to 'Edit', edit_idea_path(@idea) %> |
-      <%= link_to 'Destroy', @idea, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <% if can? :modify, @idea %>
+        <%= link_to 'Edit', edit_idea_path(@idea) %> |
+        <%= link_to 'Destroy', @idea, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <% end %>
       <%= link_to 'Back', ideas_path %>
     </div>
     
