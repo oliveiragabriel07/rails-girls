@@ -4,6 +4,8 @@ RSpec.describe Idea, type: :model do
   context "db" do
     context "indexes" do
       it { is_expected.to have_db_index(:user_id) }
+      it { is_expected.to belong_to(:user) }
+      it { is_expected.to have_many(:comments) }
     end
 
     context "columns" do
@@ -12,11 +14,6 @@ RSpec.describe Idea, type: :model do
       it { is_expected.to have_db_column(:picture).of_type(:string) }
       it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
       it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
-    end
-
-    context "references" do
-      it { is_expected.to belong_to(:user) }
-      it { is_expected.to have_many(:comments) }
     end
   end
 

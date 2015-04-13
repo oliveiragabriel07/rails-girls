@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :new_idea, only: [:create]
+  before_action :new_idea, only: :create
 
   # GET /ideas
   # GET /ideas.json
@@ -13,6 +13,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @comment = @idea.comments.build
   end
 
   # GET /ideas/new
@@ -66,7 +67,6 @@ class IdeasController < ApplicationController
     def set_idea
       @idea = Idea.find(params[:id])
       @comments = @idea.comments.all
-      @comment = @idea.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
