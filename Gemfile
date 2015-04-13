@@ -54,6 +54,8 @@ group :development, :test do
   gem 'spring-commands-rspec'
   # rspec-rails is a testing framework for Rails 3.x and 4.x.
   gem 'rspec-rails', '~> 3.0'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners that test common Rails functionality
+  gem 'shoulda-matchers', :require => false
   # Guard is a command line tool to easily handle events on file system modifications.
   gem 'guard'
   # Guard::RSpec automatically run specs 
