@@ -54,8 +54,14 @@ group :development, :test do
   gem 'spring-commands-rspec'
   # rspec-rails is a testing framework for Rails 3.x and 4.x.
   gem 'rspec-rails', '~> 3.0'
+  # Database Cleaner is a set of strategies for cleaning database in Ruby.
+  gem 'database_cleaner'
+  # Factory Girl is a fixtures replacement 
+  gem 'factory_girl_rails', '~> 4.5'
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners that test common Rails functionality
   gem 'shoulda-matchers', :require => false
+  # Capybara helps to test web applications by simulating how a real user would interact with app
+  gem 'capybara'
   # Guard is a command line tool to easily handle events on file system modifications.
   gem 'guard'
   # Guard::RSpec automatically run specs 

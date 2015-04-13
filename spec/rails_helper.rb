@@ -4,6 +4,9 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
+require 'capybara/rails'
+require 'factory_girl'
+require_relative './support/factory_girl'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
