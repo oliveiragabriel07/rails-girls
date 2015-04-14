@@ -7,7 +7,7 @@ RSpec.feature "UserRegisters", type: :feature do
   scenario "with valid data" do
     submit(user, user.password)
     
-    expect(current_path).to have_text(ideas_path)
+    expect(current_path).to eq(ideas_path)
     expect(page).to have_css("h1", text: "Listing Ideas")
     expect(page).to have_css("p.alert-success", text: I18n.t("devise.registrations.signed_up"), visible: true)
   end
