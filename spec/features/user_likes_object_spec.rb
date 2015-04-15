@@ -18,7 +18,7 @@ RSpec.feature "UserAuthenticates", type: :feature do
     scenario "should have Deslike button if liked" do
       like = create(:like, likeable_id: idea.id, likeable_type: idea.class.to_s, user_id: user.id)
       visit idea_path(idea)
-      expect(page).to have_content('Deslike')
+      expect(page).to have_content('Unlike')
     end
 
     scenario "should change Like to Deslike after like" do

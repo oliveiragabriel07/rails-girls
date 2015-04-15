@@ -50,7 +50,6 @@ RSpec.describe LikesController, type: :controller do
       it 'destroys a like' do
         expect {
           delete :destroy, format: :js, id: like.id
-          # delete :destroy, format: :js, like: valid_attributes
         }.to change(Like, :count).by(-1)
       end
     end
