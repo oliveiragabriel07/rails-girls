@@ -16,10 +16,10 @@
 
     <h3>Comments</h3>
     <div id="comment-box">
-      <%= render @comments %>
+      <%= render @comments, idea: @idea %>
     </div>
 
-    <%= render 'comments/form' %>
+    <%= render 'comments/form', idea: @idea %>
 
     <div class="actions">
       <% if can? :modify, @idea %>

@@ -3,6 +3,12 @@ class CommentsController < ApplicationController
 
   before_action :set_comment, only: [:update, :destroy]
 
+  # GET /comments
+  # GET /comments.json
+  def index
+    @comments = Comment.where(idea_id: params[:idea_id])
+  end
+
   # POST /comments
   # POST /comments.json
   def create

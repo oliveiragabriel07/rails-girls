@@ -1,0 +1,15 @@
+<h1>Listing Comments</h1>
+
+<% @comments.in_groups_of(3) do |group| %>
+  <div class="row">
+    <br>
+    <br>
+    <br>
+    <% group.compact.each do |comment| %>
+      <div class="col-sm-6 col-md-4" style="border: 1px solid black;">
+        <h4><%= comment.user_name %></h4>
+        <td><%= comment.body %></td>
+      </div>
+    <% end %>
+  </div>
+<% end %>

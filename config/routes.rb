@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :comments, only: [:create, :update, :destroy]
+  # resources :comments, only: [:create, :update, :destroy]
+  # resources :comments, only: [:update, :destroy]
 
-  resources :ideas
+  # resources :ideas
+  resources :ideas, shallow: true do
+    # resources :comments, only: [:index, :create]
+    resources :comments
+  end
   resources :likes, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
