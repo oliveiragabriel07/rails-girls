@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use carrierwave to upload files
 gem 'carrierwave'
-# Use mini_magick as a wrapper for ImageMagick 
+# Use mini_magick as a wrapper for ImageMagick
 gem 'mini_magick'
 # Use devise for authentication
 gem 'devise'
@@ -47,19 +47,20 @@ group :development, :test do
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  # Spring speeds up development by keeping application running in the background. 
+  # Spring speeds up development by keeping application running in the background.
   # Read more: https://github.com/rails/spring
   gem 'spring'
   # Adds rspec command for spring. Includes a dependency for the spring Rails application preloader
   gem 'spring-commands-rspec'
   # rspec-rails is a testing framework for Rails 3.x and 4.x.
   gem 'rspec-rails', '~> 3.0'
-  # Factory Girl is a fixtures replacement 
+  # Factory Girl is a fixtures replacement
   gem 'factory_girl_rails', '~> 4.5'
   # Guard is a command line tool to easily handle events on file system modifications.
   gem 'guard'
-  # Guard::RSpec automatically run specs 
+  # Guard::RSpec automatically run specs
   gem 'guard-rspec'
+  gem 'pry-rails'
 end
 
 group :test do

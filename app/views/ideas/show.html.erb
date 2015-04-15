@@ -8,9 +8,11 @@
 
   <div class="col-md-3">
     <p>
-      <strong>Description:</strong>
       <%= @idea.description %>
     </p>
+    <%= render 'likes/like_button', likeable: @idea %>
+    <br>
+    <br>
 
     <h3>Comments</h3>
     <% @comments.each do |comment| %>
@@ -23,7 +25,7 @@
     <% end %>
 
     <%= render 'comments/form' %>
-    
+
     <div class="actions">
       <% if can? :modify, @idea %>
         <%= link_to 'Edit', edit_idea_path(@idea) %> |
@@ -31,6 +33,6 @@
       <% end %>
       <%= link_to 'Back', ideas_path %>
     </div>
-    
+
   </div>
 </div>
