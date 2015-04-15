@@ -1,1 +1,2 @@
-$('.likeable-link').html("<%=j render 'likes/destroy_button', likeable: @like.likeable %>")
+<% span_id = "likeable_#{@like.likeable.class.to_s}_#{@like.likeable.id}" %>
+$('#<%= span_id %>').html("<%=j render 'likes/destroy_button', likeable: @like.likeable %>")
