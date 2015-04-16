@@ -34,7 +34,9 @@
     </div>
 
     <div id="comment-box">
-      <%= render @comments, idea: @idea %>
+      <div class="comment-list">
+        <%= render @comments, idea: @idea %>
+      </div>
 
       <%= render 'comments/form', idea: @idea %>
     </div>

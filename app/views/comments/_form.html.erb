@@ -10,14 +10,18 @@
       </ul>
     </div>
   <% end %>
+    
+  <%= button_tag(type: 'submit', class: "button-submit") do %>
+    <i class="fa fa-arrow-right"></i>
+  <% end %>
 
-  <div class="field">
+  <div class="field-body">
     <%= f.text_area :body %>
   </div>
 
   <%= f.hidden_field :idea_id %>
 
-  <div class="actions">
-    <%= f.submit %>
+  
+
   </div>
 <% end %>

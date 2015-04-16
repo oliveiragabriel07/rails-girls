@@ -17,3 +17,25 @@
     font-size: 11px;
   }
 }
+
+.new_comment {
+  padding: 5px;
+
+  button, textarea {
+    vertical-align: middle;
+  }
+
+  .field-body {
+    margin-right: 35px;
+
+    textarea {
+      width: 100%;
+    }
+  }
+
+  .button-submit {
+    float: right;
+    width: 30px;
+    height: 46px;
+  }
+}
