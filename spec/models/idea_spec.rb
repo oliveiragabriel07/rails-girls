@@ -27,7 +27,7 @@ RSpec.describe Idea, type: :model do
     it { is_expected.to allow_value('', nil).for(:description) }
     it { is_expected.to validate_length_of(:description)
       .is_at_least(3)
-      .is_at_most(256) 
+      .is_at_most(256)
     }
     it { is_expected.to validate_presence_of(:picture) }
     it { is_expected.to validate_presence_of(:user) }
@@ -49,12 +49,21 @@ RSpec.describe Idea, type: :model do
           expect(idea.liked_by? user).to be false
         end
       end
+
+      it 'returns true when idea is already liked by user' do
+        create(:like, likeable: idea, user: user)
+        expect(idea.liked_by?(user)).to be true
+      end
     end
 
     context "#liked_by" do
       it 'returns like object' do
         like = create(:like, likeable: idea, user: user)
         expect(idea.liked_by(user)).to eq(like)
+      end
+
+      it 'returns nil when idea wasnt liked by user' do
+        expect(idea.liked_by(user)).to be_nil
       end
     end
   end

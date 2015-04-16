@@ -1,10 +1,10 @@
 class LikesController < ApplicationController
-  
-  before_action :set_like, only: [:destroy]
+
+  before_action :set_like, only: :destroy
 
   # POST /likes
   # POST /likes.json
-   def create
+  def create
     @like = Like.new(like_params)
     @like.user = current_user
 
@@ -17,7 +17,6 @@ class LikesController < ApplicationController
       end
     end
   end
-
 
   # DELETE /like/1
   # DELETE /like/1.json
