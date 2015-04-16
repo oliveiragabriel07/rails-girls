@@ -1,0 +1,8 @@
+<% span_id = "likeable_#{likeable.class.to_s}_#{likeable.id}" %>
+<span id="<%= span_id %>">
+  <% if likeable.liked_by(current_user).present? %>
+    <%= render 'likes/destroy_button', likeable: likeable %>
+  <% else %>
+    <%= render 'likes/create_button', likeable: likeable %>
+  <% end %>
+</span>

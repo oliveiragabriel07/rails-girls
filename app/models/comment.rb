@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  include Likeable
 	belongs_to :idea
 
   validates :user_name, presence: true

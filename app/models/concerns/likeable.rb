@@ -14,3 +14,4 @@ module Likeable
     liked_by(user).present?
   end
 end
+
