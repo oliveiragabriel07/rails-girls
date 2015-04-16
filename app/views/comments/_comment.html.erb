@@ -1,12 +1,15 @@
-<div id="comment_<%= comment.id %>">
-  <strong><%= comment.user_name %></strong><br/>
+<div id="comment_<%= comment.id %>" class="comment-item">
+  <%= link_to comment_path(comment), class: "remove-sign", method: :delete, remote: true, data: { confirm: 'Are you sure?' }  do %>
+    <i class="icon-remove-sign"></i> x
+  <% end %>
+
   <p>
+    <strong><%= comment.user_name %></strong>
     <%= comment.body %>
   </p>
-  <p>
-    <%= render 'likes/like_link', likeable: comment %>
-  </p>
-  <p>
-    <%= link_to 'Delete', comment_path(comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
-  </p>
+
+  <p><%= render 'likes/like_link', likeable: comment %></p>
+  
+  <span>
+  </span>
 </div>

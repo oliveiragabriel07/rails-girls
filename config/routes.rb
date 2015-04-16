@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # resources :comments, only: [:update, :destroy]
 
   # resources :ideas
-  resources :ideas, shallow: true do
-    # resources :comments, only: [:index, :create]
-    resources :comments
+  resources :ideas do
+    resources :comments, shallow: true
   end
+
   resources :likes, only: [:create, :destroy]
 
   resources :likes, only: [:create, :destroy]

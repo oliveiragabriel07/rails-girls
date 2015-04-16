@@ -1,12 +1,19 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.btn-new-idea {
+  float: right;
+}
+
+.row {
+  margin-top: 20px;  
+}
+
 .idea-thumbnail {
+  height: 300px;
+
   .img-wrapper {
     width: 100%;
     height: 200px;
     //border: 1px solid #dddddd;
-    background-color: #eeeeee;
+    //background-color: #eeeeee;
     text-align: center;
     font-size: 0;
 
@@ -23,5 +30,18 @@
     max-width: 100%;
     display: inline-block;
     vertical-align: middle;
+  }
+}
+
+.idea-details {
+  background-color: #ffffff;
+  padding: 0;
+
+  .idea-main-details {
+    padding: 15px;
+  }
+
+  #comment-box {
+    border-top: 1px solid #dddddd;
   }
 }
