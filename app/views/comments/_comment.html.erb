@@ -4,7 +4,8 @@
   <% end %>
 
   <p>
-    <strong><%= comment.user_name %></strong>
+    <% user = comment.user %>
+    <strong><%= "#{user.first_name} #{user.last_name}" %></strong>
     <%= comment.body %>
   </p>
 

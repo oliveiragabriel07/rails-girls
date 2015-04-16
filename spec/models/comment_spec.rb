@@ -12,12 +12,13 @@ RSpec.describe Comment, type: :model do
       it { is_expected.to have_db_column(:idea_id).of_type(:integer) }
       it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
       it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
+      it { is_expected.to have_db_column(:user_id).of_type(:integer) }
     end
   end
 
   context "validation" do
-    it { is_expected.to validate_presence_of(:user_name) }
     it { is_expected.to validate_presence_of(:body) }
     it { is_expected.to validate_presence_of(:idea_id) }
+    it { is_expected.to validate_presence_of(:user) }
   end
 end
