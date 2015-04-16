@@ -1,6 +1,12 @@
 <div id="comment_<%= comment.id %>">
-<strong><%= comment.user_name %></strong><br/>
-<p><%= comment.body %></p>
-<p><%= render 'likes/like_button', likeable: comment %></p>
-<p><%= link_to 'Delete', comment_path(comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></p>
+  <strong><%= comment.user_name %></strong><br/>
+  <p>
+    <%= comment.body %>
+  </p>
+  <p>
+    <%= render 'likes/like_link', likeable: comment %>
+  </p>
+  <p>
+    <%= link_to 'Delete', comment_path(comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+  </p>
 </div>
