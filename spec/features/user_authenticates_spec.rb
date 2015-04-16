@@ -11,7 +11,7 @@ RSpec.feature "UserAuthenticates", type: :feature do
 
       login user.email, password
       expect(current_path).to have_text(ideas_path)
-      expect(page).to have_css("h1", text: "Listing Ideas")
+      expect(page).to have_css("h1", text: "Ideas")
       expect(page).to have_css("p.alert-success", text: "Signed in successfully.", visible: true)
     end
 
