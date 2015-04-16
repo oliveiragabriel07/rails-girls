@@ -27,8 +27,22 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_abilities(:manage, comment) }
     it { is_expected.to have_abilities([:read, :create], idea) }
     it { is_expected.to have_abilities(:modify, user.ideas.first) }
-    it "not have abilities modify on Idea of others" do
-      is_expected.to not_have_abilities(:modify, other_user.ideas.first)
+    it { is_expected.to not_have_abilities(:modify, other_user.ideas.first) }
+    it { is_expected.to have_abilities(:like, idea) }
+  end
+
+  context "likeable" do
+    let(:user) { build(:user) }
+    let(:likeable) { build(:idea) }
+    subject { user }
+
+    describe "#like?" do
+      it { is_expected.to respond_to(:like?) }
+
+      it "calls likeable#liked_by" do
+        expect(likeable).to receive(:liked_by?).with(user)
+        user.like? likeable
+      end
     end
   end
 end

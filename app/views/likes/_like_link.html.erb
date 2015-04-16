@@ -1,0 +1,8 @@
+<% span_id="like_#{likeable.class.to_s.downcase}_#{likeable.id}" %>
+<span id="<%= span_id %>">
+  <%- if user.like? likeable -%>
+    <%= unlike_link_for likeable.liked_by(user) %>
+  <%- else -%>
+    <%= like_link_for likeable %>
+  <%- end -%>
+</span>

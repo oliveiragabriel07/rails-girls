@@ -12,5 +12,13 @@ FactoryGirl.define do
         create_list(:comment, evaluator.comments_count, idea: idea)
       end
     end
+
+    factory :idea_with_likes do
+      transient { likes_count 3 }
+
+      after(:create) do |idea, evaluator|
+        create_list(:like, evaluator.likes_count, likeable: idea)
+      end
+    end
   end
 end

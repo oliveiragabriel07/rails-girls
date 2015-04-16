@@ -62,6 +62,10 @@ group :development, :test do
   gem 'guard-rspec'
 end
 
+group :development do
+  gem 'pry-rails'
+end
+
 group :test do
   # Database Cleaner is a set of strategies for cleaning database in Ruby.
   gem 'database_cleaner'
@@ -69,6 +73,8 @@ group :test do
   gem 'capybara'
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners that test common Rails functionality
   gem 'shoulda-matchers', require: false
+
+  gem 'launchy'
 end
 
 group :production do

@@ -67,6 +67,7 @@ class IdeasController < ApplicationController
     def set_idea
       @idea = Idea.find(params[:id])
       @comments = @idea.comments.all
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

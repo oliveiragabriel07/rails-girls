@@ -7,7 +7,7 @@ class Ability
     user ||= User.new
 
     can :manage, Comment
-    can [:create, :read], Idea
+    can [:create, :read, :like], Idea
     can :modify, Idea, :user_id => user.id
   end
 end

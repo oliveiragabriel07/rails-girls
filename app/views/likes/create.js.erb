@@ -1,0 +1,6 @@
+<%
+  likeable = @like.likeable
+  span_id = "like_#{likeable.class.to_s.downcase}_#{likeable.id}" 
+%>
+
+$('#<%= span_id %>').html("<%=j unlike_link_for likeable.liked_by(@like.user) %>")

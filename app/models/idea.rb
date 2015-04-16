@@ -1,4 +1,6 @@
 class Idea < ActiveRecord::Base
+  include Likeable
+  
 	belongs_to :user
 	has_many :comments
 	mount_uploader :picture, PictureUploader
@@ -14,5 +16,4 @@ class Idea < ActiveRecord::Base
   }
   validates :picture, presence: true
   validates :user, presence: true
-
 end

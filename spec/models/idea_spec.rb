@@ -6,6 +6,7 @@ RSpec.describe Idea, type: :model do
       it { is_expected.to have_db_index(:user_id) }
       it { is_expected.to belong_to(:user) }
       it { is_expected.to have_many(:comments) }
+      it { is_expected.to have_many(:likes) }
     end
 
     context "columns" do
@@ -30,5 +31,31 @@ RSpec.describe Idea, type: :model do
     }
     it { is_expected.to validate_presence_of(:picture) }
     it { is_expected.to validate_presence_of(:user) }
+  end
+
+  context "likeable" do
+    let!(:idea) { create(:idea) }
+    let(:user) { create(:user) }
+    
+    context "#liked_by?" do
+      it { is_expected.to respond_to(:liked_by?) }
+
+      context "returns false" do
+        it "within nil user" do
+          expect(idea.liked_by? nil).to be false
+        end
+
+        it "when user did not like idea" do
+          expect(idea.liked_by? user).to be false
+        end
+      end
+    end
+
+    context "#liked_by" do
+      it 'returns like object' do
+        like = create(:like, likeable: idea, user: user)
+        expect(idea.liked_by(user)).to eq(like)
+      end
+    end
   end
 end

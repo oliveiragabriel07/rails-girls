@@ -1,0 +1,8 @@
+console.log('TODO: show create button')
+
+<%
+  likeable = @like.likeable
+  span_id = "like_#{likeable.class.to_s.downcase}_#{likeable.id}" 
+%>
+
+$('#<%= span_id %>').html("<%=j like_link_for likeable %>")
