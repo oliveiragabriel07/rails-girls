@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
   # resources :comments, only: [:create, :update, :destroy]
   # resources :comments, only: [:update, :destroy]
@@ -11,6 +12,28 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
 
   resources :likes, only: [:create, :destroy]
+
+  devise_scope :admin do
+    get "/admin" => 'devise/sessions#new'
+    get "/logout" => "devise/sessions#destroy"
+
+    authenticated :admin do
+      root to: 'admin/admins#index', as: :root_admin_authenticated
+    end
+  end
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+
+    authenticated :user do
+      root to: 'ideas#index', as: :root_authenticated
+    end
+  end
+
+  namespace :admin do
+    resources :admins, only: [:index]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -68,5 +91,4 @@ Rails.application.routes.draw do
   #   end
   
   root :to => redirect('/ideas')
-  # root :to => "home#index"
 end

@@ -65,9 +65,7 @@ group :development, :test do
   gem 'guard'
   # Guard::RSpec automatically run specs
   gem 'guard-rspec'
-end
 
-group :development do
   gem 'pry-rails'
 end
 

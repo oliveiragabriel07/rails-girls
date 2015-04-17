@@ -3,16 +3,16 @@ require 'rails_helper'
 RSpec.feature "UserLikes", type: :feature do
 
   background do
-    login_as(idea.user)
+    visit root_path
+    login_as(user, :scope => :user, :run_callbacks => false)
+    visit idea_path(idea)
   end
 
   describe "user visits idea page" do
-    background do
-      visit idea_path(idea)
-    end
+    let!(:idea) { create(:idea) }
 
     describe "within unliked idea" do
-      let!(:idea) { create(:idea) }
+      let(:user) { create(:user) }
 
       scenario "page has like link" do
         expect(current_path).to eq(idea_path(idea))
@@ -20,10 +20,9 @@ RSpec.feature "UserLikes", type: :feature do
       end
 
       scenario "like Idea" do
-        pending "Its causing an unexpected error"
-        #this_should_not_get_executed
+        #pending "Its causing an unexpected error"
         
-        expect{ click_link "Like" }.to change{ idea.likes.count }.by(1)
+        expect{ click_link "Like" }.to change(idea.likes, :count).by(1)
         expect(page).to have_css("p.alert-success", text: "You like this Idea.")
       end
 
@@ -40,11 +39,6 @@ RSpec.feature "UserLikes", type: :feature do
       let!(:like) { create(:like) }
       let(:idea) { like.likeable }
       let(:user) { like.user }
-      
-      before do
-        login_as(user)
-        visit idea_path(idea)
-      end
 
       scenario "page has unlike link" do
         expect(page).to have_selector(:link_or_button, "Unlike")
@@ -56,4 +50,6 @@ RSpec.feature "UserLikes", type: :feature do
       end
     end
   end
+
+  private
 end
