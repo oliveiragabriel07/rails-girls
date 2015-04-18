@@ -4,7 +4,7 @@ RSpec.feature "UserLikes", type: :feature do
 
   background do
     visit root_path
-    login_as(user, :scope => :user, :run_callbacks => false)
+    login_as(user, :scope => :user)
     visit idea_path(idea)
   end
 
@@ -19,19 +19,9 @@ RSpec.feature "UserLikes", type: :feature do
         expect(page).to have_selector(:link_or_button, "Like")
       end
 
-      scenario "like Idea" do
-        #pending "Its causing an unexpected error"
-        
-        expect{ click_link "Like" }.to change(idea.likes, :count).by(1)
-        expect(page).to have_css("p.alert-success", text: "You like this Idea.")
-      end
-
-      scenario "clicking like changes link from like to deslike" do
-        pending "implement with JS driver"
-        #this_should_not_get_executed
-
+      scenario "clicking like changes link to unlike", :js => true do
         click_link "Like"
-        expect(page).to have_content('Deslike')
+        expect(page).to have_content('Unlike')
       end
     end
 
@@ -44,12 +34,10 @@ RSpec.feature "UserLikes", type: :feature do
         expect(page).to have_selector(:link_or_button, "Unlike")
       end
 
-      scenario "unlike idea" do
-        pending "Its causing an unexpected error"
-        expect{ click_link "Unlike" }.to change{ idea.liked_by? user }.from(true).to(false)
+      scenario "clicking unlike changes link to like", :js => true do
+        click_link "Unlike"
+        expect(page).to have_content('Like')
       end
     end
   end
-
-  private
 end

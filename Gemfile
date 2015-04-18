@@ -76,6 +76,7 @@ group :test do
   # Capybara helps to test web applications by simulating how a real user would interact with app
   gem 'capybara'
 
+  gem 'selenium-webdriver'
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners that test common Rails functionality
   gem 'shoulda-matchers', require: false
 

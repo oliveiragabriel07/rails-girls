@@ -29,8 +29,6 @@ RSpec.feature "UserAuthenticates", type: :feature do
     login_as(user, scope: :user)
 
     visit root_path
-    expect(current_path).to eq(ideas_path)
-
     click_link "Logout"
     expect(current_path).to eq(new_user_session_path)
     expect(page).to have_css("h2", text: "Log in")
