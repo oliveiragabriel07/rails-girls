@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use carrierwave to upload files
@@ -17,9 +16,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use foreigner for helping db migrations
 gem 'foreigner'
 # Use jquery as the JavaScript library
@@ -30,23 +26,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # Twitter Bootstrap Rails gem provide the Bootstrap stylesheets
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
-
 # Use pg for connecting to postgreSQL
 gem 'pg'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Use foreman to run all process
+gem 'foreman'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,7 +53,6 @@ group :development, :test do
   gem 'guard'
   # Guard::RSpec automatically run specs
   gem 'guard-rspec'
-
   gem 'pry-rails'
 end
 
@@ -75,7 +61,6 @@ group :test do
   gem 'database_cleaner'
   # Capybara helps to test web applications by simulating how a real user would interact with app
   gem 'capybara'
-
   gem 'selenium-webdriver'
   # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners that test common Rails functionality
   gem 'shoulda-matchers', require: false
